@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>С Днём Рождения, Тётя 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle, #2b1055, #000);
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 25px;
+  padding: 35px;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 0 45px rgba(255,0,150,0.6);
+  backdrop-filter: blur(10px);
+  animation: glow 2s infinite alternate;
+  z-index: 2;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px #ff4da6; }
+  to   { box-shadow: 0 0 55px #ff99cc; }
+}
+
+h1 {
+  font-size: 30px;
+  color: #ff99cc;
+}
+
+button {
+  margin-top: 18px;
+  padding: 13px 32px;
+  font-size: 17px;
+  border-radius: 40px;
+  border: none;
+  background: linear-gradient(45deg, #ff0080, #ffcc00);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.text {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.poem {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Konfeti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 14px;
+  top: -20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1 id="title">🎂 С ДНЁМ РОЖДЕНИЯ, ДОРОГАЯ ТЁТЯ 🎂</h1>
+
+  <!-- Güzel dilekler -->
+  <div class="text" id="wishes">
+    💖 Пусть в твоей жизни будет больше улыбок,<br>
+    🌸 пусть каждый день начинается с радости,<br>
+    🌷 пусть здоровье будет крепким,<br>
+    ✨ а сердце всегда наполнено теплом и любовью.<br><br>
+
+    Пусть рядом будут родные люди,<br>
+    удача никогда не покидает,<br>
+    а все мечты обязательно сбываются 💫
+  </div>
+
+  <!-- Buton -->
+  <button id="btn" onclick="showPoem()">🎁 Стих ко дню рождения</button>
+
+  <!-- Şiir -->
+  <div class="poem" id="poem">
+    🌸 <b>Стих для любимой тёти</b> 🌸<br><br>
+
+    Дорогая тётя, в этот добрый час,<br>
+    Пусть свет улыбки не уходит с глаз.<br>
+    Пусть счастье рядом будет каждый день,<br>
+    И в сердце не живёт ни боль, ни тень.<br><br>
+
+    Пусть жизнь цветёт, как яркие цветы,<br>
+    Пусть исполняются заветные мечты.<br>
+    Здоровья, мира, радости, тепла,<br>
+    Чтоб жизнь лишь счастье за собой вела.<br><br>
+
+    <b>С Днём Рождения! Мы тебя очень любим 💖</b>
+  </div>
+</div>
+
+<script>
+function showPoem() {
+  // Üsttekileri gizle
+  document.getElementById("wishes").style.display = "none";
+  document.getElementById("btn").style.display = "none";
+
+  // Şiiri göster
+  document.getElementById("poem").style.display = "block";
+
+  // Konfeti
+  for (let i = 0; i < 120; i++) {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.backgroundColor =
+      "hsl(" + Math.random()*360 + ",100%,60%)";
+    c.style.animationDuration =
+      (3 + Math.random()*3) + "s";
+    document.body.appendChild(c);
+
+    setTimeout(() => c.remove(), 6000);
+  }
+}
+</script>
+
+</body>
+</html>
